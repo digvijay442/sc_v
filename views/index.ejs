@@ -1,15 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>SC</title>
-    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <% if(rows.length > 0) { %>
-    <h1>home page</h1>
+<% include partials/header%>
+<% include partials/navbar%>
+
+    <div class="container">
+    <% if(products.length > 0) { %>
+    <h4>Home Page - Products</h4>
+    <div class='rows'>
+    <% products.forEach( function(data){ %>
+      <div class="col-md-3">
+        <div class="thumbnail">
+            <input type="hidden" class="productId" value="<%= data.id %>" />
+            <img alt="product image" src="<%= data.url %>" class="img-responsive img-rounded" / >
+            <h4 class="productName"><strong><%= data.product_name %> </strong></h4>
+            <p> Price: <span class="price"> <%= data.price %> </<span> </p>
+            <a href="/checkout"><button type="button" class="fly-btn btn-primary" name="buy">Buy</button></a>
+            <button class="fly-btn btn-info addtoCart">Add to Cart</button>
+        </div>
+      </div>
+      <% })%>
+    </div>
     <% } %>
-    <script src='jquery.min.js'></script>
-    <script src='bootstrap.min.js'></script>
-  </body>
-</html>
+    </div>
+
+<% include partials/footer%>

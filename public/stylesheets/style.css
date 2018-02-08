@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.fly-btn{
+  border-radius: 10%;
+}
+
+#cartVal{
+  font-size: large;
+  color: black;
+}
